@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { exit } from 'process';
+import {HttpClient} from '@angular/common/http';
+import {map} from 'rxjs/operators';
 
 @Component({
   selector: 'app-home',
@@ -8,44 +9,11 @@ import { exit } from 'process';
 })
 export class HomePage {
 
-  num: number;
-  numSecret: number= this.numAleatorio(1, 100);
-  mayorMenor: string = '...';
-  finaliza: string = 'Sesión activa';
+  users: any;
 
-
-  constructor() {
-    console.log("El numero secreto es: " + this.numSecret);
+  constructor(private httpClient: HttpClient) {
+    this.users = this.httpClient.get('https://randomuser.me/api/?results=20').pipe(map(res => res['results']));
   }
 
-  numAleatorio(a, b) {
-    return Math.round(Math.random()*(b-a)+parseInt(a));
-  }
-
-  compruebaNumero(){
-    if(this.num){
-      if(this.numSecret < this.num){
-        this.mayorMenor = 'menor';
-    } else if (this.numSecret > this.num) {
-        this.mayorMenor = 'mayor';
-    } else{
-      this.mayorMenor = 'igual';
-    }
-  }
-}
-
-  reinicia(){
-    //Reiniciar las variables
-    this.num = null;
-    this.mayorMenor = '...';
-    this.numSecret = this.numAleatorio(1, 100);
-    console.log("El numero secreto es: " + this.numSecret);
-  }
-
-  acabar(){
-    this.num = null;
-    this.finaliza = 'Has finalizado la sesión';
-    console.log("Has finalizado la sesión.");
-  }
-
+  
 }

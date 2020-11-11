@@ -9,30 +9,10 @@
 }
 
 #container strong {
-  font-size: 20px;
+  font-size: 60px;
   line-height: 26px;
 }
 
-ion-content {
-  --ion-background-color: olive;
-  @media screen and (max-width: 992px) {
-    --ion-background-color: blue;
-    }
-  @media screen and (max-width: 600px) {
-    --ion-background-color: #ffce00;
-    }
+::content{
+  font-size: 60px;
 }
-
-
-.clasebotonp{
-  --background: #006600;
-}
-
-
-.clasebotons{
-  --background: #002541;
-  @media only screen and (orientation: landscape) {
-    --background: pink;
-  }
-}
-
