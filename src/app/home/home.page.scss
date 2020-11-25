@@ -9,10 +9,39 @@
 }
 
 #container strong {
-  font-size: 60px;
-  line-height: 26px;
+  font-size: 40px;
+  line-height: 46px;
 }
 
 ::content{
-  font-size: 60px;
+  font-size: 30px;
+}
+
+
+
+
+
+
+ion-content {
+  @media only screen and (orientation: landscape) {
+    --background: yellow;
+  }
+  @media screen and (max-width: 900px) {
+    --ion-background-color: #FFA07A;
+    }
+    @media screen and (min-width: 600px) {
+      --ion-background-color: blue;
+    }
+    @media screen and (max-width: 600px) {
+      --ion-background-color: black;
+    }
+    
+}
+
+
+.user{
+  --background: yellow;
+  @media only screen and (orientation: landscape) {
+    --background: pink;
+  }
 }
